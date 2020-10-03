@@ -1,0 +1,14 @@
+Password
+password
+Admin
+admin
+Administrator
+administrator
+ADMINISTRATOR
+Msfadmin
+msfadmin
+Admin@123
+admin@123
+Password@123
+password@123
+
